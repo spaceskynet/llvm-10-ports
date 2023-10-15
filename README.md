@@ -1,16 +1,18 @@
-# LLVM Ports
+# LLVM 10 Ports
 
 This project ports the [LLVM Project](https://llvm.org/) to recent Debian
 and Ubuntu releases.
+
+This fork is used for the Fundamentals of Compiling course using LLVM 10.
 
 ## Images
 
 The ports are available as Docker images at
 [Docker Hub](https://hub.docker.com/r/zhongruoyu/llvm-ports). They also come
 with the Debian/Ubuntu release's default [GCC](https://gcc.gnu.org/), and the
-latest releases of [GNU Binutils](https://www.gnu.org/software/binutils/)
-(currently version 2.41) and [CMake](https://cmake.org/) (currently version
-3.27.7).
+releases of [GNU Binutils](https://www.gnu.org/software/binutils/)
+(version 2.35) and [CMake](https://cmake.org/) (version
+3.16.7). It's painful to find a correct version for CMake with LLVM 10.
 
 The image tags are in the format of `version[-variant]-codename`, where
 `version` is the LLVM release version, `codename` is the codename of the
@@ -23,13 +25,7 @@ The following LLVM releases are available:
 
 | LLVM release | versions as appeared in tags |
 | ------------ | ---------------------------- |
-| LLVM 17.0.2  | `17`, `17.0`, `17.0.2`       |
-| LLVM 16.0.6  | `16`, `16.0`, `16.0.6`       |
-| LLVM 15.0.7  | `15`, `15.0`, `15.0.7`       |
-| LLVM 14.0.6  | `14`, `14.0`, `14.0.6`       |
-| LLVM 13.0.1  | `13`, `13.0`, `13.0.1`       |
-| LLVM 12.0.1  | `12`, `12.0`, `12.0.1`       |
-| LLVM 11.1.0  | `11`, `11.1`, `11.1.0`       |
+| LLVM 10.0.1  | `10`, `10.0`, `10.0.1`       |
 
 The following Debian/Ubuntu releases are available:
 

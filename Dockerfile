@@ -53,10 +53,10 @@ RUN set -ex; \
     \
     curl -fL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-SHA-256.txt.asc" -O; \
     curl -fL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-SHA-256.txt" -O; \
-    curl -fL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-x86_64.tar.gz" -O; \
+    curl -fL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz" -O; \
     gpg --batch --verify "cmake-${CMAKE_VERSION}-SHA-256.txt.asc" "cmake-${CMAKE_VERSION}-SHA-256.txt"; \
     sha256sum -c --ignore-missing "cmake-${CMAKE_VERSION}-SHA-256.txt"; \
-    tar -xf "cmake-${CMAKE_VERSION}-linux-x86_64.tar.gz" -C /usr/local --strip-components=1; \
+    tar -xf "cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz" -C /usr/local --strip-components=1; \
     rm "cmake-${CMAKE_VERSION}"*
 
 ENV GPG_KEYS \
@@ -79,8 +79,8 @@ ARG EXTRA_CMAKE_ARGS
 
 RUN set -ex; \
     \
-    curl -fL "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/llvm-project-${LLVM_VERSION}.src.tar.xz.sig" -o 'llvm-project.tar.xz.sig'; \
-    curl -fL "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/llvm-project-${LLVM_VERSION}.src.tar.xz" -o 'llvm-project.tar.xz'; \
+    curl -fL "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/llvm-project-${LLVM_VERSION}.tar.xz.sig" -o 'llvm-project.tar.xz.sig'; \
+    curl -fL "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/llvm-project-${LLVM_VERSION}.tar.xz" -o 'llvm-project.tar.xz'; \
     gpg --batch --verify llvm-project.tar.xz.sig llvm-project.tar.xz; \
     mkdir -p /usr/src/llvm-project; \
     tar -xf llvm-project.tar.xz -C /usr/src/llvm-project --strip-components=1; \

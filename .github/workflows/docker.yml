@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 0 * * 0"
 
 concurrency:
   group: docker
@@ -25,23 +23,17 @@ jobs:
           - focal
           - bionic
         llvm-version:
-          - "17.0.2"
-          - "16.0.6"
-          - "15.0.7"
-          - "14.0.6"
-          - "13.0.1"
-          - "12.0.1"
-          - "11.1.0"
+          - "10.0.1"
         llvm-configuration:
           - extra-cmake-args: ""
             config-suffix: ""
           - extra-cmake-args: -DLLVM_LINK_LLVM_DYLIB=ON
             config-suffix: -slim
     env:
-      DOCKERHUB_REPOSITORY: zhongruoyu/llvm-ports
+      DOCKERHUB_REPOSITORY: spaceskynet/llvm-10-ports
       PLATFORMS: linux/amd64
-      BINUTILS_VERSION: "2.41"
-      CMAKE_VERSION: "3.27.7"
+      BINUTILS_VERSION: "2.35"
+      CMAKE_VERSION: "3.16.7"
     runs-on: ubuntu-latest
     steps:
       - name: Set environment variables
