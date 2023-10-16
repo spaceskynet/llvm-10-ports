@@ -1,9 +1,15 @@
 ARG BASE_IMAGE_TAG
 FROM buildpack-deps:${BASE_IMAGE_TAG}
 
+ARG BASE_IMAGE_TAG
 RUN set -ex; \
     apt-get update; \
-    apt-get install -y python2; \
+    # fix PYTHON_EXECUTABLE not found problem
+    if [ "${BASE_IMAGE_TAG}" = "bookworm" ]; then \
+        apt-get install -y python-is-python3; \
+    elif [ "${BASE_IMAGE_TAG}" = "jammy" ]; then \
+        apt-get install -y python2; \
+    fi; \
     apt-get install -y --no-install-recommends \
         gnupg \
     ; \
@@ -21,6 +27,7 @@ RUN set -ex; \
     \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        flex \
         bison \
         texinfo \
     ; \

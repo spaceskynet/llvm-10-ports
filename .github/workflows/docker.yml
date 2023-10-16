@@ -30,7 +30,7 @@ jobs:
     env:
       DOCKERHUB_REPOSITORY: spaceskynet/llvm-10-ports
       PLATFORMS: linux/amd64
-      BINUTILS_VERSION: "2.35"
+      BINUTILS_VERSION: "2.38"
       CMAKE_VERSION: "3.16.7"
     runs-on: ubuntu-latest
     steps:
