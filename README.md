@@ -47,11 +47,9 @@ All images provide the [LLVM Core](https://llvm.org/) libraries,
 [libc++](https://libcxx.llvm.org/), [libc++ ABI](https://libcxxabi.llvm.org/),
 libunwind, and [OpenMP](https://openmp.llvm.org/).
 
-The "slim" variants are available. They provide significantly smaller images
-by having LLVM and Clang libraries dynamically linked. This, however, also
-comes at the cost of a substantial performance penalty. See
-[here](https://llvm.org/docs/BuildingADistribution.html#general-distribution-guidance)
-for more details.
+Due to CMake Error, will not build the "slim" version.
+
+~~The "slim" variants are available. They provide significantly smaller images by having LLVM and Clang libraries dynamically linked. This, however, also comes at the cost of a substantial performance penalty. See [here](https://llvm.org/docs/BuildingADistribution.html#general-distribution-guidance) for more details.~~
 
 See [here](https://hub.docker.com/r/zhongruoyu/llvm-ports/tags) for a complete
 list of tags.

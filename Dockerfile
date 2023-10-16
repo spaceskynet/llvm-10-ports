@@ -3,6 +3,7 @@ FROM buildpack-deps:${BASE_IMAGE_TAG}
 
 RUN set -ex; \
     apt-get update; \
+    apt-get install -y python2; \
     apt-get install -y --no-install-recommends \
         gnupg \
     ; \
@@ -90,6 +91,10 @@ RUN set -ex; \
     if [ "$(echo "${LLVM_VERSION}" | cut -d '.' -f 1)" -lt 12 ]; then \
         # [nfc] Fix missing include
         curl -fL "https://github.com/llvm/llvm-project/commit/b498303066a63a203d24f739b2d2e0e56dca70d1.patch" | git apply; \
+    fi; \
+    if [ "$(echo "${LLVM_VERSION}" | cut -d '.' -f 1)" -lt 11 ]; then \
+        # [PATCH] [libomptarget][nfc] Disable amdgcn rtl build. The cmake logic
+        curl -fL "https://github.com/llvm/llvm-project/commit/298527587c76f83ac8172099c6d85f1643dcdcc7.patch" | git apply; \
     fi; \
     \
     dir="$(mktemp -d)"; \

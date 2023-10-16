@@ -27,8 +27,6 @@ jobs:
         llvm-configuration:
           - extra-cmake-args: ""
             config-suffix: ""
-          - extra-cmake-args: -DLLVM_LINK_LLVM_DYLIB=ON
-            config-suffix: -slim
     env:
       DOCKERHUB_REPOSITORY: spaceskynet/llvm-10-ports
       PLATFORMS: linux/amd64
