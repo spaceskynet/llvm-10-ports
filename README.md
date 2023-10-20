@@ -3,15 +3,17 @@
 This project ports the [LLVM Project](https://llvm.org/) to recent Debian
 and Ubuntu releases.
 
-This fork is used for the Fundamentals of Compiling course using LLVM 10.
+The origin [zhongruoyu/llvm-ports](https://hub.docker.com/r/zhongruoyu/llvm-ports) is for LLVM 11-17, this fork is used for the Fundamentals of Compiling course using LLVM 10.
+
+Either Debian 11 (Bullseye) or Ubuntu 20.04 (Focal Fossa), namely 10-bullseye and 10-focal, are recommended for the Fundamentals of Compiling course.
 
 ## Images
 
 The ports are available as Docker images at
-[Docker Hub](https://hub.docker.com/r/zhongruoyu/llvm-ports). They also come
+[Docker Hub](https://hub.docker.com/r/spaceskynet/llvm-10-ports). They also come
 with the Debian/Ubuntu release's default [GCC](https://gcc.gnu.org/), and the
 releases of [GNU Binutils](https://www.gnu.org/software/binutils/)
-(version 2.35) and [CMake](https://cmake.org/) (version
+(version 2.38) and [CMake](https://cmake.org/) (version
 3.16.7). It's painful to find a correct version for CMake with LLVM 10.
 
 The image tags are in the format of `version[-variant]-codename`, where

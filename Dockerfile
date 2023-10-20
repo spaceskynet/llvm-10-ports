@@ -129,4 +129,8 @@ RUN set -ex; \
     else \
         echo "/usr/local/lib/$(llvm-config --host-target)" > /etc/ld.so.conf.d/000-libc++.conf; \
     fi; \
+    # set default cc/c++ to clang/clang++
+    rm -f /usr/bin/cc /usr/bin/c++; \
+    ln -s $(which clang) /usr/bin/cc; \
+    ln -s $(which clang++) /usr/bin/c++; \
     ldconfig -v
